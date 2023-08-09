@@ -1,8 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
-string lastName = "Sutcliffe";
-int age = 37;
+string lastName = "Sxxxxx";
+int age = 28;
 string theirLastName = "Jones";
-int theirAge = 32;
+int theirAge = 19;
 int ageDifference = (age - theirAge);
 
 if (age > theirAge) {
