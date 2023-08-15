@@ -6,4 +6,9 @@
 //********************************
 //Welcome to My Application!
 //********************************
-
+void myWelcomeMessage()
+{ Console.WriteLine("***************");
+    Console.WriteLine("Welcome to My Application!");
+Console.WriteLine("***************");
+}
+myWelcomeMessage();
