@@ -30,29 +30,37 @@ void GetUserNumbers()
             i--;
         }
     }
+    Console.WriteLine(userNumbers);
 }
 
 GetUserNumbers();
 
-//int userNumbers = Convert.ToInt32(Console.ReadLine());
+void PrintArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i == array.Length - 1)
+        {
+            Console.WriteLine(array[i] + ".");
+            continue;
+        }
+        Console.Write(array[i] + ", ");
+    }
+}
+
+PrintArray(userNumbers);
 
 
-//Console.WriteLine("Please enter a number from 0-12:");
+//random array creation
+for (int i = 0; i < randomNumbers.Length; i++)
+{
+    Random random = new Random();
+    randomNumbers[i] = random.Next(rangeMin, rangeMax + 1);
+}
 
-//int number = Convert.ToInt32(Console.ReadLine());
+PrintArray(randomNumbers);
 
-//if (number >= 0 && number <= 12)
-//{
-//    Console.WriteLine("You selected the number " + number + ".");
-//    for (int i = 0; i <= 12; i++)
-//    {
-//        Console.WriteLine(number + " x " + i + " = " + (number * i));
-//    }
-//}
-//else
-//{
-//    Console.WriteLine("Please select a number from 0-12.");
-//}
+int.Parse(Console.ReadLine());  //force the terminal to stay open
 
 
 //using System;
