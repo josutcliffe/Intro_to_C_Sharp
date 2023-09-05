@@ -7,7 +7,7 @@
 
 using System.Threading.Tasks.Sources;
 
-int totalNumbers = 10;
+int totalNumbers = 5;
 int rangeMin = 1;
 int rangeMax = 50;
 
@@ -92,63 +92,59 @@ PrintArray(randomNumbers);
 
 
 
-//void LinearSearch(int[] firstArray, int[] secondArray)  //Use a linear search to compare the values between two arrays.
-//{
-      //Console.WriteLine("Performing linear search of user numbers against lottery numbers.");
-//    if (firstArray.Length == secondArray.Length)
-//    {
-//        for (int i = 0; i < firstArray.Length; i++)
-//        {
-//            bool correctNumber = false;
-//            for (int j = 0; j < secondArray.Length; j++)
-//            {
-//                if (firstArray[i] == secondArray[j])
-//                {
-//                    Console.WriteLine("Your guessed number " + firstArray[i] + " is a winning lottery number.");
-//                    correctNumber = true;
-//                    break;
-//                }
-//                else
-//                {
-//                    if (firstArray[i] != secondArray[j])
-//                    {
-//                        Console.WriteLine("Your guessed number " + firstArray[i] + " is not a winning lottery number.");
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
+void LinearSearch(int[] firstArray, int[] secondArray)  //Use a linear search to compare the values between two arrays.
+{
+    Console.WriteLine();
+    Console.WriteLine("Performing linear search of user numbers against lottery numbers.");
+    for (int i = 0; i < firstArray.Length; i++)
+    {
+        bool correctNumber = false;
+        for (int j = 0; j < secondArray.Length; j++)
+        {
+            if (firstArray[i] == secondArray[j])
+            {
+                Console.WriteLine("Your guessed number, " + firstArray[i] + " is a winning lottery number.");
+                correctNumber = true;
+                break;
+            }
+        }
+        if (!correctNumber)
+            Console.WriteLine("Your guessed number, {0}, was not a lottery number.", firstArray[i]);
+    }
+}
 
-//LinearSearch(userNumbers, randomNumbers);
 
-//int.Parse(Console.ReadLine());  //force the terminal to stay open
+LinearSearch(userNumbers, randomNumbers);
+
 
 
 int BinarySearch(int[] userNumberValue, int[] randomNumberValue, int low, int high)
 {
+    Console.WriteLine();
     Console.WriteLine("Performing binary search of user numbers against lottery numbers.");
 
-    int score = 0;
+    int score = 0;  // counter variable, to track how many numbers the user guesses correctly
     for (int i = 0; i < randomNumberValue.Length; i++)
     {
         low = 0;
         high = randomNumberValue.Length - 1;
         int valueToCheck = userNumberValue[i];
-        bool found = false;
+        bool correctNumber = false;
         while (high >= low)
         {
             int mid = low + (high - low) / 2;
-            Console.WriteLine("Value to check: {0}", valueToCheck);
-            Console.WriteLine("Binary search low value: " + low);
-            Console.WriteLine("Binary search mid value: " + mid);
-            Console.WriteLine("Binary search high value: " + high);
+            
+            // print statements to check binary search is working correctly
+            //Console.WriteLine("User number to check: {0}", valueToCheck);
+            //Console.WriteLine("Low value: " + low);
+            //Console.WriteLine("High value: " + high);
+            //Console.WriteLine("Mid value: " + mid);
 
             if (randomNumberValue[mid] == valueToCheck)
             {
                 Console.WriteLine("Your guessed number, {0}, was a lottery number (and is found at index {1}).", valueToCheck, mid);
-                found = true;
-                score++;
+                correctNumber = true;
+                score++;  // if user guessed correctly, add to counter
                 break;
             }
 
@@ -157,27 +153,39 @@ int BinarySearch(int[] userNumberValue, int[] randomNumberValue, int low, int hi
             else
                 low = mid + 1;
         }
-        if (!found)
+        if (!correctNumber)
         {
             Console.WriteLine("Your guessed number, {0}, was not a lottery number.", valueToCheck);
         }
     }
-    Console.WriteLine("You correctly selected {0} of the {1} lottery numbers.", score, randomNumberValue.Length);
+    Console.WriteLine("You correctly selected {0} of the {1} lottery numbers.", score, randomNumberValue.Length);  // give user feedback on how many numbers they guessed correctly.
     return score;
 }
 
-BinarySearch(userNumbers, randomNumbers, 0, randomNumbers.Length - 1);
+BinarySearch(userNumbers, randomNumbers, rangeMin, randomNumbers.Length - 1);
 
 
 // TODO: ability for user to play again from the beginning
-//void PlayAgain()
-//{
-//    Console.WriteLine("That is the end of the Lottery Game. Would you like to play again?");
-//    Console.WriteLine("Press 'Y' to play again, or 'N' to quit.");
-//    if (Console.ReadLine().)
-//    string userInput = Console.ReadLine();
+void PlayAgain()
+{
+    Console.WriteLine();
+    Console.WriteLine("That is the end of the Lottery Game. Would you like to play again?");
+    Console.WriteLine("Press 'Y' to play again, or 'N' to quit.");
+    string userInput = Console.ReadLine();
+    if (userInput.ToUpper() == "Y")
+    {
+        Console.WriteLine("Oops, there was an error. Please close the game and reopen to play again."); //TODO need to create a game loop function that contains all the functions...
+        Thread.Sleep(3000); // delay to keep console open so user can read message
+        System.Environment.Exit(0);
+    }
+    else if (userInput.ToUpper() == "N")
+    {
+        Console.WriteLine("Thank you for playing the Lottery Game. Please play again soon!");
+        Thread.Sleep(3000);  // delay to keep console open so user can read message
+        System.Environment.Exit(0);
+    }
+}
 
-//}
+PlayAgain();
 
-
-int.Parse(Console.ReadLine());  //force the terminal to stay open
+//int.Parse(Console.ReadLine());  //force the terminal to stay open
