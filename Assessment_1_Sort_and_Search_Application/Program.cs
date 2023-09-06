@@ -5,11 +5,12 @@
 //Student email: 20107131@tafe.wa.edu.au
 //====================================
 
+using System.Runtime.InteropServices;
 using System.Threading.Tasks.Sources;
 
-int totalNumbers = 5;
+int totalNumbers = 10;
 int rangeMin = 1;
-int rangeMax = 50;
+int rangeMax = 100;
 
 int[] userNumbers = new int[totalNumbers];
 int[] randomNumbers = new int[totalNumbers];
@@ -23,7 +24,7 @@ void GetUserNumbers()
 
     for (int i = 0; i < userNumbers.Length; i++)
     {
-        Console.WriteLine($"Enter value " + i + ":");
+        Console.WriteLine($"Enter value " + (i + 1) + ":");
         string userInput = Console.ReadLine();
         if (!int.TryParse(userInput, out userNumbers[i]) || userNumbers[i] < rangeMin || userNumbers[i] > rangeMax) //user input error checking
         {
@@ -50,7 +51,6 @@ void GetUserNumbers()
     }
 }
 
-GetUserNumbers();
 
 
 void PrintArray(int[] arrayToPrint) //Function to print array values
@@ -66,10 +66,6 @@ void PrintArray(int[] arrayToPrint) //Function to print array values
     }
 }
 
-Array.Sort(userNumbers);
-Console.WriteLine("You chose the following numbers:");
-PrintArray(userNumbers);
-
 
 
 void RandomArrayCreate() //Random number array creation
@@ -81,14 +77,6 @@ void RandomArrayCreate() //Random number array creation
         randomNumbers[i] = random.Next(rangeMin, rangeMax + 1);
     }
 }
-
-RandomArrayCreate();
-
-
-Array.Sort(randomNumbers);
-Console.WriteLine("The random lottery numbers were:");
-PrintArray(randomNumbers);
-
 
 
 
@@ -113,8 +101,6 @@ void LinearSearch(int[] firstArray, int[] secondArray)  //Use a linear search to
     }
 }
 
-
-LinearSearch(userNumbers, randomNumbers);
 
 
 
@@ -162,10 +148,8 @@ int BinarySearch(int[] userNumberValue, int[] randomNumberValue, int low, int hi
     return score;
 }
 
-BinarySearch(userNumbers, randomNumbers, rangeMin, randomNumbers.Length - 1);
 
 
-// TODO: ability for user to play again from the beginning
 void PlayAgain()
 {
     Console.WriteLine();
@@ -174,9 +158,7 @@ void PlayAgain()
     string userInput = Console.ReadLine();
     if (userInput.ToUpper() == "Y")
     {
-        Console.WriteLine("Oops, there was an error. Please close the game and reopen to play again."); //TODO need to create a game loop function that contains all the functions...
-        Thread.Sleep(3000); // delay to keep console open so user can read message
-        System.Environment.Exit(0);
+        GameLoop();
     }
     else if (userInput.ToUpper() == "N")
     {
@@ -186,6 +168,20 @@ void PlayAgain()
     }
 }
 
-PlayAgain();
 
-//int.Parse(Console.ReadLine());  //force the terminal to stay open
+void GameLoop()  // Wrapper to put all the functions into one, allowing a game loop.
+{
+    GetUserNumbers();
+    Array.Sort(userNumbers);
+    Console.WriteLine("You chose the following numbers:");
+    PrintArray(userNumbers);
+    RandomArrayCreate();
+    Array.Sort(randomNumbers);
+    Console.WriteLine("The random lottery numbers were:");
+    PrintArray(randomNumbers);
+    LinearSearch(userNumbers, randomNumbers);
+    BinarySearch(userNumbers, randomNumbers, rangeMin, randomNumbers.Length - 1);
+    PlayAgain();
+}
+
+GameLoop();
