@@ -3,30 +3,29 @@
 //Student: Joshua Sutcliffe
 //Student ID: 20107131
 //Student email: 20107131@tafe.wa.edu.au
+//Submitted: 09/09/2023
 //====================================
 
-using System.Runtime.InteropServices;
-using System.Threading.Tasks.Sources;
 
-int totalNumbers = 10;
+// gameplay variables that can be adjusted
+int totalNumbers = 5;
 int rangeMin = 1;
-int rangeMax = 100;
+int rangeMax = 20;
 
 int[] userNumbers = new int[totalNumbers];
 int[] randomNumbers = new int[totalNumbers];
 
-//int [] defaultNumberArray = new int[5] {1, 3, 6, 7, 9}; //for use when testing application
 
 void GetUserNumbers()
 {
-    Console.WriteLine("Welcome to The Lottery Game");
+    Console.WriteLine("Welcome to The Lottery Game.");
     Console.WriteLine("Please enter " + totalNumbers + " numbers between " + rangeMin + " and " + rangeMax + ".");
 
     for (int i = 0; i < userNumbers.Length; i++)
     {
         Console.WriteLine($"Enter value " + (i + 1) + ":");
         string userInput = Console.ReadLine();
-        if (!int.TryParse(userInput, out userNumbers[i]) || userNumbers[i] < rangeMin || userNumbers[i] > rangeMax) //user input error checking
+        if (!int.TryParse(userInput, out userNumbers[i]) || userNumbers[i] < rangeMin || userNumbers[i] > rangeMax) //user input error checking: first checks if the user input can convert to an integer, then if the user number is within the set range
         {
             Console.WriteLine("You did not select a valid number. Please try again.");  
             i--;
@@ -103,7 +102,6 @@ void LinearSearch(int[] firstArray, int[] secondArray)  //Use a linear search to
 
 
 
-
 int BinarySearch(int[] userNumberValue, int[] randomNumberValue, int low, int high)
 {
     Console.WriteLine();
@@ -144,6 +142,7 @@ int BinarySearch(int[] userNumberValue, int[] randomNumberValue, int low, int hi
             Console.WriteLine("Your guessed number, {0}, was not a lottery number.", valueToCheck);
         }
     }
+    Console.WriteLine();
     Console.WriteLine("You correctly selected {0} of the {1} lottery numbers.", score, randomNumberValue.Length);  // give user feedback on how many numbers they guessed correctly.
     return score;
 }
@@ -158,7 +157,7 @@ void PlayAgain()
     string userInput = Console.ReadLine();
     if (userInput.ToUpper() == "Y")
     {
-        GameLoop();
+        GameLoop();  // restart the gameloop so user can play again
     }
     else if (userInput.ToUpper() == "N")
     {
@@ -173,6 +172,7 @@ void GameLoop()  // Wrapper to put all the functions into one, allowing a game l
 {
     GetUserNumbers();
     Array.Sort(userNumbers);
+    Console.WriteLine();
     Console.WriteLine("You chose the following numbers:");
     PrintArray(userNumbers);
     RandomArrayCreate();
