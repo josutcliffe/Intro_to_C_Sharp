@@ -20,9 +20,18 @@ namespace Assessment_2_Contractors
     /// </summary>
     public partial class MainWindow : Window
     {
+        RecruitmentSystem recruitment = new RecruitmentSystem(20);
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_GetContractors_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Contractor contractor in recruitment.GetContractors())
+            {
+                ListBox_Contractors.Items.Add(contractor);
+            }
         }
     }
 }
