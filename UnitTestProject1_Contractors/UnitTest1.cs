@@ -2,6 +2,17 @@
 using Assessment_2_Contractors;
 using System;
 
+
+//=========================================
+//Name: Joshua Sutcliffe
+//Student ID: 20107131
+//Email: 20107131@tafe.wa.edu.au
+//Cluster - Introductory Programming - C#
+//Assignment 2 - Part C
+//Date Submitted: 29/11/2023
+//=========================================
+
+
 namespace UnitTestProject1_Contractors
 {
     [TestClass]
