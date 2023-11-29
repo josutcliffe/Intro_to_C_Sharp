@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Assessment_2_Contractors
 {
-    internal class Contractor
+    public class Contractor
     {
         public int ID { get; set; }
         public string FirstName { get; set; }
@@ -51,7 +51,7 @@ namespace Assessment_2_Contractors
         }
     }
 
-    enum ContractorAssignmentTypes
+    public enum ContractorAssignmentTypes
     {
         Unavailable,
         Available

@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Assessment_2_Contractors
 {
-    internal class RecruitmentSystem
+    public class RecruitmentSystem
     {
         //Using a list for the Contractors and Jobs to allow the number of Contractors/Jobs be dynamic e.g., not hard limited as an array
         List<Contractor> contractorList = new List<Contractor>();

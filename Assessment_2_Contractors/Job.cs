@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Assessment_2_Contractors
 {
-    internal class Job
+    public class Job
     {
         public int JobID { get; set; }
         public string Title { get; set; }
@@ -44,13 +44,13 @@ namespace Assessment_2_Contractors
         }
     }
 
-    enum JobAssignmentTypes
+    public enum JobAssignmentTypes
     {
         Unassigned,
         Assigned
     }
 
-    enum JobStatusTypes
+    public enum JobStatusTypes
     {
         Incomplete,
         Completed
