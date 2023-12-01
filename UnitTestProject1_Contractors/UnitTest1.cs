@@ -8,8 +8,8 @@ using System;
 //Student ID: 20107131
 //Email: 20107131@tafe.wa.edu.au
 //Cluster - Introductory Programming - C#
-//Assignment 2 - Part C
-//Date Submitted: 29/11/2023
+//Version: Assignment 2 - Part C
+//Date Submitted: XX/12/2023
 //=========================================
 
 
@@ -18,6 +18,11 @@ namespace UnitTestProject1_Contractors
     [TestClass]
     public class UnitTest1
     {
+
+        public static void Main(string[] args)
+        {
+        }
+
         [TestMethod]
 
         //1a Test Case
@@ -31,6 +36,7 @@ namespace UnitTestProject1_Contractors
             Assert.IsTrue(recruitmentSystem.GetContractors().Contains(contractor));
         }
 
+        [TestMethod]
         //3a Test Case
         public void AddJob()
         {
@@ -42,6 +48,7 @@ namespace UnitTestProject1_Contractors
             Assert.IsTrue(recruitmentSystem.GetJobs().Contains(job));
         }
 
+        [TestMethod]
         //8a Test Case
         public void TestMethod1()
         {
