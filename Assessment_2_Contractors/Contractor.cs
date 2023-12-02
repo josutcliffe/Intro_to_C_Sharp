@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 //Student ID: 20107131
 //Email: 20107131@tafe.wa.edu.au
 //Cluster - Introductory Programming - C#
-//Date Submitted: 12/11/2023
+//Version: Assignment 2 - Part C
+//Date Submitted: 02/12/2023
 //=========================================
 
 namespace Assessment_2_Contractors

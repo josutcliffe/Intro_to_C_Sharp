@@ -19,7 +19,8 @@ using System.Windows.Shapes;
 //Student ID: 20107131
 //Email: 20107131@tafe.wa.edu.au
 //Cluster - Introductory Programming - C#
-//Date Submitted: 12/11/2023
+//Version: Assignment 2 - Part C
+//Date Submitted: 02/12/2023
 //=========================================
 
 namespace Assessment_2_Contractors
@@ -85,7 +86,7 @@ namespace Assessment_2_Contractors
             Label_HourlyWageValue.Content = $"({Slider_HourlyWage.Value})";
         }
         
-        ///TODO: add handling for when a contractor assigned to a job is removed, the job should then become unassigned.
+
         private void Button_RemoveContractor_Click(object sender, RoutedEventArgs e)
         {
             
